@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>IsActive</key>
+		<true/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>Pause</string>
+						<key>Seconds</key>
+						<real>1</real>
+						<key>Time</key>
+						<string>1.0</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>Text</key>
+						<string>See top of script</string>
+						<key>Title</key>
+						<string>APPLESCRIPT MUST BE CONFIGURED</string>
+					</dict>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>----	Created by: Sean Korzdorfer--	Created on: 02/23/13 08:56:00----	Copyright (c) 2013 MyCompanyName--	All Rights Reserved---- ! CONFIGURE: Path to directory containing notes to import.set thePath to "MacintoshHD:skorzdorfer:Dropbox:notes:to_voodoo"-- ! CONFIGURE: Path to directory to archive txt files.set archivePath to "MacintoshHD:skorzdorfer:Dropbox:notes:voodoo_archive"-- ! CONFIGURE: The VoodooPad Document to openset padFile to "MacintoshHD:skorzdorfer:Dropbox:VoodooPad:testPad.vpdoc"-- ! CONFIGURE: The VoodooPad Tag to give the new pagesset theTag to "Inbox"tell application "Finder"	open padFile	set fileList to every file of folder thePath	repeat with x in fileList		set theFile to thePath &amp; ":" &amp; name of x		-- NB: Had to use this exact syntax to get it to work. Odd.		set file_id to open for access file theFile		set noteText to (read file_id)		-- Strip the '.txt' from the end of the text file name.		set noteName to my findAndReplace(".txt", "", name of x)		close access file_id		tell application "VoodooPad"			tell document 1 to create new page with name noteName with content noteText						tell document 1 to tell page noteName to add category named theTag		end tell		move theFile to archivePath	end repeatend tellon findAndReplace(tofind, toreplace, TheString)	set ditd to text item delimiters	set text item delimiters to tofind	set textItems to text items of TheString	set text item delimiters to toreplace	if (class of TheString is string) then		set res to textItems as string	else -- if (class of TheString is Unicode text) then		set res to textItems as Unicode text	end if	set text item delimiters to ditd	return resend findAndReplace</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>Variable</string>
+					</dict>
+				</array>
+				<key>IsActive</key>
+				<true/>
+				<key>Name</key>
+				<string>Import to VoodooPad</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>MacroTriggerType</key>
+						<string>Wake</string>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>59DA44FB-BBEF-40BC-8705-3FBFFEA2A852</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>on wake</string>
+		<key>UID</key>
+		<string>28E99EAB-320D-4335-ADCD-7EF3B5BAD035</string>
+	</dict>
+</array>
+</plist>
