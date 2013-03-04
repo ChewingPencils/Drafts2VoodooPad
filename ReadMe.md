@@ -2,7 +2,7 @@
 
 ## Overview
 
-A workfolw for creating new VoodooPad Pages from text files created with Drafts.app.
+A workflow for creating new VoodooPad Pages from text files created with Drafts.app.
 
 Methods Provided: 
 
