@@ -19,7 +19,7 @@ Nota Bene: Due to several limitiations, this script isn't effecient as I'd like 
 - The path to a directory that Drafts.app will save text files
 - The path to an archive directory for processed text files
 - The name of the VoodooPad document
-- The name of the tag to add to the new VoodooPad pages
+- The name of the VoodooPad tag
 
 ### 2. Create [Drafts App](http://agiletortoise.com/drafts) Action
 
