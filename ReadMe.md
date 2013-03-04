@@ -2,7 +2,7 @@
 
 ## Overview
 
-Create new VoodooPad Pages from text files in a specific Dropbox Directory.
+A workfolw for creating new VoodooPad Pages from text files created with Drafts.app.
 
 Methods Provided: 
 
@@ -10,16 +10,16 @@ Methods Provided:
 - Keyboard Maestro Macro
 	- Runs at System Wake
 
-Nota Bene: Due to several limitiations, this script isn't effecient as I'd like. This is the reason a Hazel rule is not provided.
+Nota Bene: Due to several limitiations, this script isn't effecient as I'd like … Using Hazel is not the best idea.
 
 ## Installation
 
 ### 1. Configure the AppleScript:
 
-- The path to a directory to watch
-- The path to a directory to archive the text files after proccessing
+- The path to a directory that Drafts.app will save text files
+- The path to an archive directory for processed text files
 - The name of the VoodooPad document
-- The name of the tag to add to the VoodooPad pages the script creates.
+- The name of the tag to add to the new VoodooPad pages
 
 ### 2. Create [Drafts App](http://agiletortoise.com/drafts) Action
 
